@@ -1,9 +1,10 @@
 import React from 'react';
+import { Heading } from './components';
 
 const Home = () => {
   return (
     <div>
-      hello
+      <Heading tag='h4'>Nimadir</Heading>
     </div>
   );
 };
