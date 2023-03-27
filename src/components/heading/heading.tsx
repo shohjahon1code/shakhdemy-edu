@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeadingProps } from './heading.props';
-import classes from './heading.module.css'
+import classes from './heading.module.css';
 
 const Heading = ({ children, tag }: HeadingProps): JSX.Element => {
   switch (tag) {
