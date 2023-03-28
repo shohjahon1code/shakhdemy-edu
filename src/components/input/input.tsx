@@ -3,7 +3,7 @@ import classes from './input.module.css';
 import cn from 'classnames';
 import { InputProps } from './input.props';
 
-const Input = ({ className, ...props }: InputProps) => {
+const Input = ({ className, ...props }: InputProps):JSX.Element => {
   return (
     <input className={cn(classes.input, className)} {...props} />
   );

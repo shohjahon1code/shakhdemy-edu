@@ -3,7 +3,7 @@ import classes from './text-area.module.css';
 import cn from 'classnames';
 import { TextAreaProps } from './text-area.props';
 
-const TextArea = ({ className, ...props }: TextAreaProps) => {
+const TextArea = ({ className, ...props }: TextAreaProps): JSX.Element => {
   return (
     <textarea className={cn(classes.textarea, className)} {...props}></textarea>
   );

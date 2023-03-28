@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Heading, Input, Tag, Text, TextArea } from '../components';
+import { Button, Heading, Input, Rating, Tag, Text, TextArea } from '../components';
 
 const Home = () => {
   const [isClick, setIsClick] = useState<boolean>(true);
+  const [rating, setRating] = useState<number>(4);
+
+
   return (
     <div>
       <Heading tag='h4'>heading</Heading>
@@ -16,7 +19,8 @@ const Home = () => {
       <br />
       <Input placeholder='Enter' /><br />
       <br />
-      <TextArea placeholder='Enter value' />
+      <TextArea placeholder='Enter value' /><br />
+      <Rating rating={rating} setRating={setRating} isEditable={true} />
     </div>
   );
 };
