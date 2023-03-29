@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Heading, Input, Rating, Tag, Text, TextArea } from '../components';
+import { GetServerSideProps } from 'next';
+import axios from 'axios';
+import { withLayout } from '../layout/layout';
 
 const Home = () => {
   const [isClick, setIsClick] = useState<boolean>(true);
   const [rating, setRating] = useState<number>(4);
 
-
   return (
-    <div>
+    <>
       <Heading tag='h4'>heading</Heading>
       <Text size='s'>text</Text>
       <Tag color='green' size='m'>nimadir</Tag>
@@ -21,8 +23,20 @@ const Home = () => {
       <br />
       <TextArea placeholder='Enter value' /><br />
       <Rating rating={rating} setRating={setRating} isEditable={true} />
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default withLayout(Home);
+
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+  const { data } = await axios.post('http://localhost:4000/page-find', { firstCategory: 1 });
+
+  return {
+    props: {
+      data
+    }
+  };
+};
