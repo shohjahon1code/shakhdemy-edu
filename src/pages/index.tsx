@@ -25,7 +25,7 @@ const Home = ({ firstCategory, menu }: HomeProps) => {
       <TextArea placeholder='Enter value' /><br />
       <Rating rating={rating} setRating={setRating} isEditable={true} />
       <ul>
-        {menu.map(c=> (
+        {menu.map(c => (
           <li key={c._id.secondCategory}>{c._id.secondCategory}</li>
         ))}
       </ul>
