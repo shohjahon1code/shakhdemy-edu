@@ -6,6 +6,7 @@ export interface PageModel {
   description: string;
   hh: HHData;
   advantages: AdvantageData[];
+  category: string;
 }
 
 export interface HHData {

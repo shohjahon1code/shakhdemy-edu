@@ -1,0 +1,12 @@
+import React from 'react'
+import { DividerProps } from './divider.props';
+import cn from 'classnames';
+import classes from './divider.module.css';
+
+const Divider = ({ className, ...props }: DividerProps): JSX.Element => {
+  return (
+    <hr className={cn(className, classes.divider)} />
+  )
+}
+
+export default Divider
