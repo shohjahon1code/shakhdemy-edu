@@ -1,10 +1,11 @@
+import Menu from "../menu/menu";
 import { SidebarProps } from "./sidebar.pprops";
 
 
 const Sidebar = ({ ...props }: SidebarProps): JSX.Element => {
   return (
     <div {...props}>
-      sidebar
+      <Menu />
     </div>
   );
 };
