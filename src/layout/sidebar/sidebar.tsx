@@ -3,7 +3,7 @@ import { SidebarProps } from "./sidebar.pprops";
 import cn from 'classnames';
 import classes from './sidebar.module.css'
 import Link from "next/link";
-import { Divider } from "../../components";
+import { Divider, Search } from "../../components";
 
 const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
@@ -12,7 +12,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
         Logo
         <Divider />
       </Link>
-      <div>Search...</div>
+      <Search />
       <Menu />
     </div>
   );

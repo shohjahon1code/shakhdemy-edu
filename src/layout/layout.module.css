@@ -7,7 +7,7 @@
     ". header header ."
     ". body sidebar ."
     "footer footer footer footer";
-  gap: 40px 30px;
+  gap: 30px 30px;
 }
 
 .header {
