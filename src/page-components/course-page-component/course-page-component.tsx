@@ -2,7 +2,7 @@ import React from 'react'
 import { CoursePageComponentsProps } from './course-page-component.props'
 import classes from './course-page-component.module.css';
 import cn from 'classnames';
-import { Advantages, Heading, HhData, Product, Tag, Text } from '../../components';
+import { Advantages, Heading, HhData, Product, Sort, Tag, Text } from '../../components';
 
 const CoursePageComponent = ({ firstCategory, page, products, ...props }: CoursePageComponentsProps): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const CoursePageComponent = ({ firstCategory, page, products, ...props }: Course
       {/* Title */}
       <div className={classes.title}>
         <Heading tag='h1'>{page.title}</Heading>
-        <div>Sort...</div>
+        <Sort />
       </div>
       {/* Products */}
       <div>{products.length && products.map((c, i) => (
