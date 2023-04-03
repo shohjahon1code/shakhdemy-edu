@@ -1,0 +1,23 @@
+.review {
+  display: grid;
+  grid-template-columns: [start] auto 1fr auto [end];
+  align-items: center;
+  font-size: 14px;
+  line-height: 24px;
+  gap: 10px;
+}
+
+.description {
+  grid-column: start / end;
+}
+
+.name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+@media screen and (max-width:600px) {
+  .rating {
+    grid-column: start / end;
+  }
+}

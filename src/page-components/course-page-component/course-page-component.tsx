@@ -2,7 +2,7 @@ import React from 'react'
 import { CoursePageComponentsProps } from './course-page-component.props'
 import classes from './course-page-component.module.css';
 import cn from 'classnames';
-import { Advantages, Heading, HhData, Tag, Text } from '../../components';
+import { Advantages, Heading, HhData, Product, Tag, Text } from '../../components';
 
 const CoursePageComponent = ({ firstCategory, page, products, ...props }: CoursePageComponentsProps): JSX.Element => {
   return (
@@ -13,7 +13,9 @@ const CoursePageComponent = ({ firstCategory, page, products, ...props }: Course
         <div>Sort...</div>
       </div>
       {/* Products */}
-      <div>products</div>
+      <div>{products.length && products.map((c, i) => (
+        <Product key={i} product={c} />
+      ))}</div>
 
       {/* Vacations */}
       <div className={classes.hhTitle}>
