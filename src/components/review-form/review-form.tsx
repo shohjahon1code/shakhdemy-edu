@@ -7,13 +7,31 @@ import { useState } from "react";
 import TextArea from "../text-area/text-area";
 import Button from "../button/button";
 import { Controller, useForm } from "react-hook-form";
-import { IReviewForm } from "./review-form.interface";
+import { IReviewForm, IReviewResponse } from "./review-form.interface";
+import axios from "axios";
+import CloseIcon from './close.svg';
+
+
 const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
-  const { register, handleSubmit, control, formState: { errors } } = useForm<IReviewForm>()
+  const { register, handleSubmit, control, reset, formState: { errors } } = useForm<IReviewForm>()
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false)
   const [rating, setRating] = useState<number>(0);
 
-  const onSubmit = (data: IReviewForm) => {
-    console.log(data)
+  const onSubmit = async (formData: IReviewForm) => {
+    setError(false);
+    setIsSuccess(false);
+
+    try {
+      const { data, status } = await axios.post<IReviewResponse>(`${process.env.NEXT_PUBLIC_API}/posts`, { ...formData, productId })
+      if (status === 201) {
+        setIsSuccess(true)
+        reset()
+      }
+    } catch (error) {
+      setError(true)
+      console.log(error)
+    }
   }
 
   return (
@@ -35,6 +53,22 @@ const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.El
           <span className={classes.info}>*Your review will be moderated and reviewed before being published</span>
         </div>
       </div>
+      {isSuccess && (
+        <div className={classes.success}>
+          <div className={classes.successTitle}>Review sent successfully</div>
+          <div >Thanks your review will published after testing</div>
+          <CloseIcon className={classes.close} onClick={() => setIsSuccess(false)} />
+        </div>
+      )}
+
+      {error && (
+        <div className={classes.error}>
+          <div className={classes.successTitle}>
+            Something went wrong!
+          </div>
+          <CloseIcon className={classes.close} onClick={() => setError(false)} />
+        </div>
+      )}
     </form>
   )
 }

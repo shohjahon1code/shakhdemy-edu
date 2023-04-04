@@ -3,17 +3,23 @@ import cn from 'classnames';
 import classes from './product.module.css';
 import Card from '../card/card';
 import Image from 'next/image';
-import { convertToUSD } from '../../helpers/helpers';
+import { convertToUSD, dedectedReview } from '../../helpers/helpers';
 import Tag from '../tag/tag';
 import Rating from '../rating/rating';
 import Divider from '../divider/divider';
 import Button from '../button/button';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
 
 const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
+  const reviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReview = () => {
+    setReviewOpen(true)
+    reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <div className={cn(className)} {...props}>
@@ -39,7 +45,10 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
         </div>
         <div className={classes.priceTitle}>Price</div>
         <div className={classes.creditTitle}>Credit</div>
-        <div className={classes.rateTitle}>{product.reviewCount} reviews</div>
+        <div className={classes.rateTitle}>{product.reviewCount}
+          <a href="#review" onClick={scrollToReview}>{dedectedReview(product.reviewCount)}</a>
+        </div>
+
         <Divider className={classes.hr} />
         <div className={classes.description}>{product.description}</div>
         <div className={classes.features}>
@@ -73,7 +82,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
           </Button>
         </div>
       </Card>
-      <Card color='white' className={cn(classes.reviews, {
+      <Card color='white' ref={reviewRef} className={cn(classes.reviews, {
         [classes.opened]: reviewOpen,
         [classes.closed]: !reviewOpen
       })}>
