@@ -9,3 +9,18 @@
 .editable {
   cursor: pointer;
 }
+
+.rating {
+  position: relative;
+}
+
+.error {
+  stroke: var(--red);
+}
+
+.errorMessage {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  color: var(--red);
+}

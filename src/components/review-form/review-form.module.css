@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: [start] auto 1fr auto auto [end];
   align-items: center;
-  gap: 10px;
+  gap: 20px 30px;
   font-size: 14px;
   line-height: 24px;
 }
@@ -29,26 +29,26 @@
 }
 
 @media screen and (max-width: 730px) {
-  .reviewForm{
+  .reviewForm {
     grid-template-columns: [start] 1fr 1fr [end];
   }
   .rating {
     grid-column: start / end;
   }
 
-  .title{
+  .title {
     justify-self: normal;
   }
 }
 @media screen and (max-width: 570px) {
-  .reviewForm{
+  .reviewForm {
     grid-template-columns: [start] 1fr [end];
   }
   .rating {
     grid-column: start / end;
   }
 
-  .title{
+  .title {
     justify-self: normal;
   }
 }
