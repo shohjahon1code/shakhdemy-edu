@@ -10,13 +10,17 @@ const Sort = ({ sort, setSort, className, ...props }: SortProps): JSX.Element =>
     <div className={cn(className, classes.sort)} {...props}>
       <span className={cn({
         [classes.active]: sort == SortEnum.Rating
-      })}>
+      })}
+      onClick={()=> setSort(SortEnum.Rating)}
+      >
         <SortIcon className={classes.sortIcon} /> Rating
       </span>
       
       <span className={cn({
         [classes.active]: sort == SortEnum.Price
-      })}>
+      })}
+      onClick={()=> setSort(SortEnum.Price)}
+      >
         <SortIcon className={classes.sortIcon} /> Price
       </span>
     </div>
