@@ -22,7 +22,7 @@ const CoursePageComponent = ({ firstCategory, page, products, ...props }: Course
 
   const spring = {
     type: 'spring',
-    stiffness: 500,
+    stiffness: 700,
     damping: 10
   }
 

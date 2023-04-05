@@ -18,6 +18,16 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
   const reviewRef = useRef<HTMLDivElement>(null);
 
+  const variants = {
+    visible: {
+      opacity: 1,
+      height: "auto"
+    },
+    hidden: {
+      opacity: 0,
+      height: 0
+    }
+  }
 
   const scrollToReview = () => {
     setReviewOpen(true)
@@ -85,19 +95,18 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
           </Button>
         </div>
       </Card>
-      <Card color='white' ref={reviewRef} className={cn(classes.reviews, {
-        [classes.opened]: reviewOpen,
-        [classes.closed]: !reviewOpen
-      })}>
+      <motion.div animate={reviewOpen ? 'visible' : 'hidden'} variants={variants} initial={'hidden'}>
+        <Card color='white' ref={reviewRef} className={cn(classes.reviews)}>
 
-        {product.reviews.map(c => (
-          <div key={c._id}>
-            <Review review={c} />
-            <Divider />
-          </div>
-        ))}
-        <ReviewForm productId={product._id} />
-      </Card>
+          {product.reviews.map(c => (
+            <div key={c._id}>
+              <Review review={c} />
+              <Divider />
+            </div>
+          ))}
+          <ReviewForm productId={product._id} />
+        </Card>
+      </motion.div>
     </div>
   )
 }))

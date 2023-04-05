@@ -137,6 +137,11 @@
   margin-left: 15px;
 }
 
+.reviews{
+  overflow: hidden;
+  padding: 30px;
+}
+
 .opened {
   max-height: auto;
   padding: 30px;
