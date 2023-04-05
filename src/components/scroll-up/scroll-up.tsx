@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import classes from './scroll-up.module.css';
-import UpIcon from './up.svg';
 import { motion } from 'framer-motion';
 import { useScrollY } from '../../hooks/useScrollY';
 import IconButton from '../icon-button/icon-button';
