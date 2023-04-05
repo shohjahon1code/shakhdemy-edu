@@ -8,13 +8,16 @@ import Tag from '../tag/tag';
 import Rating from '../rating/rating';
 import Divider from '../divider/divider';
 import Button from '../button/button';
-import { useRef, useState } from 'react';
+import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import Review from '../review/review';
 import ReviewForm from '../review-form/review-form';
+import { motion } from 'framer-motion'
 
-const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
+
+const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
   const [reviewOpen, setReviewOpen] = useState<boolean>(false);
   const reviewRef = useRef<HTMLDivElement>(null);
+
 
   const scrollToReview = () => {
     setReviewOpen(true)
@@ -22,7 +25,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
   }
 
   return (
-    <div className={cn(className)} {...props}>
+    <div className={cn(className)} ref={ref} {...props}>
       <Card className={classes.product}>
         <div className={classes.logo}>
           <Image src={product.images} alt={product.title} width={'70'} height={'70'} />
@@ -97,6 +100,6 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
       </Card>
     </div>
   )
-}
+}))
 
 export default Product
