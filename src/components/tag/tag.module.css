@@ -17,6 +17,12 @@
   line-height: 14px;
 }
 
+.l {
+  padding: 10px 8px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
 .red {
   color: var(--white);
   background-color: #de0000;

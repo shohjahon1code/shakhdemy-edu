@@ -19,6 +19,6 @@ export const TextField: Story = {
 export const TextFieldError: Story = {
   args: {
     placeholder: 'Placeholder',
-    error: {message: 'Field is required'},
+    error: {message: 'Field is required', type:'', ref: null},
   },
 };
