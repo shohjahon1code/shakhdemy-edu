@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Fragment } from 'react';
-import { Button, Card, Heading, Text } from '../../components';
+import { Button, Card, Heading, ScrollUp, Text } from '../../components';
 import Navbar from '../../layout/navbar/navbar';
 import styles from './home-page-component.module.css';
 import Footer from '../../layout/footer/footer';
@@ -65,6 +65,7 @@ const HomePageComponent = () => {
             ))}
           </div>
         </div>
+				<ScrollUp />
 			<Footer />
 		</div>
 	);
