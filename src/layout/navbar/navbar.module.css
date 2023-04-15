@@ -60,6 +60,7 @@
 		padding: 10px;
 		background-color: var(--primary);
 		border-top: 1px solid rgba(0, 0, 0, 0.02);
+		color: var(--white);
 	}
 	.mobileMenu a {
 		display: block;
