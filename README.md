@@ -1,4 +1,4 @@
-## Sammi Education Platform
+## SHAKHDEMY Education Platform
 
 # Demo Version
 https://shakhdemy-edu.vercel.app/
