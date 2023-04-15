@@ -29,8 +29,8 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <nav className={styles.nav}>
         <Link href={"/"}>
-          {/* <Logo className={styles.logo} /> */}
-          Logo
+          <Logo className={styles.logo} />
+          {/* Logo */}
         </Link>
         <div className={styles.navigation}>
           {navLinks.map((nav, idx) => (

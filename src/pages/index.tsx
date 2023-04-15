@@ -4,9 +4,14 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { MenuItem } from "../interface/menu.interface";
 import { withLayout } from "../layout/layout";
+import Seo from "../layout/seo/seo";
 
 const Home = (): JSX.Element => {
-  return <HomePageComponent />;
+  return (
+    <Seo>
+      <HomePageComponent />;
+    </Seo>
+  );
 };
 
 export default withLayout(Home);
