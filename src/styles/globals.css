@@ -39,3 +39,8 @@ ul {
 	--green: #1dc37e;
 	--green-light: #c8f8e4;
 }
+
+#nprogress .bar {
+	background: #4152ab !important;
+	height: 10px;
+	}
